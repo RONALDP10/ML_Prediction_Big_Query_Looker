@@ -15,20 +15,20 @@ En esta etapa, se realizan consultas a los datos de Google Analytics para explor
 - Convertir diccionarios a columnas para facilitar el análisis.
 
 ### 2. **Análisis de Datos** 📈
-Se realizan varias consultas para analizar los datos, incluyendo:
+Se realizan varias consultas para analizar los datos, como las siguientes:
 - Número total de transacciones por navegador y tipo de dispositivo.
 - Porcentaje de rechazo (**bounce rate**) por origen de tráfico.
 - Porcentaje de conversión por sistema operativo, categoría de dispositivo y navegador.
 - Porcentaje de visitantes que realizaron una compra en el sitio web.
 
 ### 3. **Creación del Modelo Predictivo** 🤖
-Se crean dos modelos de regresión logística utilizando **BigQuery ML**:
-- En la argumentación del modelo se establece un número de profundidad de 8. También se incluye regularización L1 y L2
-- e realiza un balanceamiento de los datos con un método UnderSampling para optimizar el entrenamiento del modelo.
+Se crea un modelo Random Forest **BigQuery ML**:
+- En la argumentación del modelo se establecen parámetros como: Número de árboles en paralelo (NUM_PARALLEL_TREE), profundidad del modelo (MAX_TREE_DEPTH )
+- Para el entrenamiento se realiza un balanceamiento de los datos con un método UnderSampling para optimizar el entrenamiento del modelo.
 
 Se evalúan el modelo utilizando métricas como la **matriz de confusión** y otras métricas de evaluación proporcionadas por BigQuery ML.
 
 ### 4. **Tabla de Dashboard en Looker** 📊
 Se crea una tabla en BigQuery para almacenar las predicciones diarias del modelo. Esta tabla se utiliza para alimentar un **dashboard en Looker**, donde se visualizan métricas clave.
 
-Accede al Dahboard aquí: https://lookerstudio.google.com/reporting/80c7ce14-bba5-4177-9ef6-a8fd79749111
+Accede al Dahboard aquí: https://lookerstudio.google.com/reporting/5ad7f1f4-efba-4196-906a-630cbcd3877d
